@@ -41,12 +41,23 @@
   }
 
   #bouncing-bad-page-wrapper {
-    width: 100%;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-rows: 10% 1fr 10%;
+    grid-template-columns: 10% 1fr 10%;
+    border: 2px solid yellow;
+  }
+
+  #bounce-area {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    position: relative;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
   }
 
   .bouncing-words-wrapper {
@@ -69,36 +80,64 @@
   }
 
   .bouncing-words-wrapper > div > div > span {
+    font-size: xx-large;
     display: inline-block;
     animation: adjust-for-height var(--animation-vertical-time) infinite linear;
   }
 
   .drake-image-column {
-    flex-grow: 0;
-    width: 10%;
+    width: 100%;
     height: 100%;
     background-image: url("assets/drake_says_no.jpg");
     background-repeat: repeat-y;
-    background-size: 100%;
+    background-size: 100% auto;
   }
 
-  .flipped {
-    transform: scaleX(-1);
-  }
-
-  #bounce-area {
-    position: relative;
-    flex-grow: 1;
-    flex-basis: 10%;
+  .drake-image-row {
+    width: 100%;
     height: 100%;
-    overflow: hidden;
+    background-image: url("assets/drake_says_no_upwards.jpg");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+  }
+
+  .bottom-row {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .top-row {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    transform: scaleY(-1);
+  }
+
+  .left-column {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .right-column {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    transform: scaleX(-1);
   }
 </style>
 
 <script src="js/bouncingBadScript.js"></script>
 
 <div id="bouncing-bad-page-wrapper">
-  <div class="drake-image-column" />
+  <div class="drake-image-row top-row" />
+  <div class="drake-image-column left-column" />
   <div id="bounce-area" />
-  <div src="assets/drake_says_no.jpg" class="drake-image-column flipped"/>
+  <div class="drake-image-column right-column"/>
+  <div class="drake-image-row bottom-row"/>
 </div>

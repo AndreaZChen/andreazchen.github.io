@@ -9,6 +9,7 @@ var bouncingWords = [
   "Racism",
   "Repetitive strain injuries",
   "Drake himself",
+  "Eifie",
 ];
 
 function addBouncingWordsToHtml() {

@@ -10,6 +10,7 @@ var bouncingWords = [
   "Repetitive strain injuries",
   "Drake himself",
   "Eifie",
+  "<img src='https://cdn.discordapp.com/emojis/574323263564677135.png?v=1'/>",
 ];
 
 function addBouncingWordsToHtml() {

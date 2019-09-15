@@ -1,0 +1,110 @@
+<style>
+  :root {
+    --animation-vertical-time: 6s;
+    --animation-horizontal-time: 7s;
+  }
+
+  @keyframes bounce-horizontal {
+    0%,100% {
+      transform: translate3d(0%,0,0);
+    }
+    50% {
+      transform: translate3d(100%,0,0);
+    }
+  }
+
+  @keyframes bounce-vertical {
+    0%,100% {
+      transform: translate3d(0,0%,0);
+    }
+    50% {
+      transform: translate3d(0,100%,0);
+    }
+  }
+
+  @keyframes adjust-for-width {
+    0%,100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes adjust-for-height {
+    0%,100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+  }
+
+  #bouncing-bad-page-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bouncing-words-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: bounce-horizontal var(--animation-horizontal-time) infinite linear;
+  }
+
+  .bouncing-words-wrapper > div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: bounce-vertical var(--animation-vertical-time) infinite linear;
+  }
+
+  .bouncing-words-wrapper > div > div {
+    display: inline-block;
+    animation: adjust-for-width var(--animation-horizontal-time) infinite linear;
+  }
+
+  .bouncing-words-wrapper > div > div > span {
+    display: inline-block;
+    animation: adjust-for-height var(--animation-vertical-time) infinite linear;
+  }
+
+  .drake-image-column {
+    flex-grow: 0;
+    width: 10%;
+    height: 100%;
+    background-image: url("assets/drake_says_no.jpg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+  }
+
+  .flipped {
+    transform: scaleX(-1);
+  }
+
+  #bounce-area {
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 10%;
+    height: 100%;
+    overflow: hidden;
+  }
+</style>
+
+<div id="bouncing-bad-page-wrapper">
+  <div class="drake-image-column" />
+  <div id="bounce-area">
+    <div class="bouncing-words-wrapper">
+      <div>
+        <div>
+          <span>TRANSPHOBIA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div src="assets/drake_says_no.jpg" class="drake-image-column flipped"/>
+</div>
